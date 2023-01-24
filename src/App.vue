@@ -1,14 +1,18 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar flat>
-      <v-app-bar-title>
-        <v-icon icon="mdi-circle-slice-4" />
-
+    <v-app-bar flat :absolute="true" color="transparent">
+      <h1 class="titulo">
         Enggit Co.
-      </v-app-bar-title>
+      </h1>
 
-      <v-tabs color="deep-purple accent-4" fixed-tabs centered>
-        <v-tab v-for="item in items" :key="item.title" :to="item.to" link>
+      <v-tabs color="white" right>
+        <v-tab
+          v-for="item in items"
+          :key="item.title"
+          :to="item.to"
+          link
+          style="color:white; font-family: 'Quicksand', sans-serif; font-size: 20px"
+        >
           {{ item.title }}
         </v-tab>
       </v-tabs>
@@ -42,9 +46,12 @@ export default {
 };
 </script>
 
-<style scoped>
-.tabs {
-  font-size: small;
-  width: 100px;
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+.titulo {
+  font-family: "Monoton", cursive;
+  overflow: unset;
 }
 </style>
