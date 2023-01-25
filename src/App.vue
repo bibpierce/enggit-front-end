@@ -15,11 +15,13 @@
           {{ item.title }}
         </v-tab>
       </v-tabs>
+      <v-btn variant="outlined" icon color="white">
+        <v-icon>mdi-account</v-icon>
+      </v-btn>
       <v-text-field
-        text-color="white"
+        v-text-color="white"
         class="text-input-white"
         color="white"
-        light=""
         :loading="loading"
         density="compact"
         variant="solo"
@@ -27,8 +29,12 @@
         append-icon="mdi-magnify"
         single-line
         hide-details
+        :style="{ background: white }"
         @click:append="onClick"
       ></v-text-field>
+      <v-btn variant="outlined" icon color="white">
+        <v-icon>mdi-format-list-bulleted-square</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-main>
       <router-view></router-view>
@@ -83,6 +89,14 @@ export default {
   white-space: nowrap;
 }
 .text-input-white .v-text-field__slot input {
+  color: white !important;
+}
+
+.text-input-white .v-text-field__slot input::placeholder {
+  color: white !important;
+}
+
+.text-input-white .v-text-field__slot input::-webkit-search-results-button {
   color: white !important;
 }
 </style>
