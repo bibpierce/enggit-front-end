@@ -15,6 +15,16 @@
           {{ item.title }}
         </v-tab>
       </v-tabs>
+      <v-text-field
+        :loading="loading"
+        density="compact"
+        variant="solo"
+        label="Search"
+        append-icon="mdi-magnify"
+        single-line
+        hide-details
+        @click:append-inner="onClick"
+      ></v-text-field>
     </v-app-bar>
     <v-main>
       <router-view></router-view>
@@ -26,6 +36,8 @@
 <script>
 export default {
   data: () => ({
+    loaded: false,
+    loading: false,
     items: [
       { title: "HOME", icon: "mdi-format-list-checks", to: "/" },
       { title: "PRODUCTS", icon: "mdi-help-box", to: "/products" },
@@ -33,6 +45,16 @@ export default {
     ],
     drawer: null
   }),
+  methods: {
+    onClick() {
+      this.loading = true;
+
+      setTimeout(() => {
+        this.loading = false;
+        this.loaded = true;
+      }, 2000);
+    }
+  },
   components: {
     // search: require("@/components/Utils/Search.vue").default,
     // "live-date-time": require("@/components/Utils/LiveDateTime.vue").default,
