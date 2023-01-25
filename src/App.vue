@@ -1,11 +1,10 @@
 <template>
   <v-app id="inspire">
     <v-app-bar flat :absolute="true" color="transparent">
-      <h1 class="titulo">
+      <span class="titulo">
         Enggit Co.
-      </h1>
-
-      <v-tabs color="white" right>
+      </span>
+      <v-tabs color="white" centered>
         <v-tab
           v-for="item in items"
           :key="item.title"
@@ -51,7 +50,10 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
 .titulo {
+  color: aliceblue;
   font-family: "Monoton", cursive;
   overflow: unset;
+  font-size: 50px;
+  white-space: nowrap;
 }
 </style>
