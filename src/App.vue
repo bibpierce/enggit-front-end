@@ -16,14 +16,18 @@
         </v-tab>
       </v-tabs>
       <v-text-field
+        text-color="white"
+        class="text-input-white"
+        color="white"
+        light=""
         :loading="loading"
         density="compact"
         variant="solo"
-        label="Search"
+        placeholder="Search"
         append-icon="mdi-magnify"
         single-line
         hide-details
-        @click:append-inner="onClick"
+        @click:append="onClick"
       ></v-text-field>
     </v-app-bar>
     <v-main>
@@ -54,17 +58,17 @@ export default {
         this.loaded = true;
       }, 2000);
     }
-  },
-  components: {
-    // search: require("@/components/Utils/Search.vue").default,
-    // "live-date-time": require("@/components/Utils/LiveDateTime.vue").default,
-    // "add-task": require("@/components/Task/AddTask").default,
-    snackbar: require("@/components/Shared/Snackbar.vue").default
   }
-  // mounted() {
-  //   this.$store.dispatch("getTasks");
-  // }
 };
+// components: {
+//   // search: require("@/components/Utils/Search.vue").default,
+//   // "live-date-time": require("@/components/Utils/LiveDateTime.vue").default,
+//   // "add-task": require("@/components/Task/AddTask").default,
+//   snackbar: require("@/components/Shared/Snackbar.vue").default
+// }
+// // mounted() {
+// //   this.$store.dispatch("getTasks");
+// // }
 </script>
 
 <style>
@@ -77,5 +81,8 @@ export default {
   overflow: unset;
   font-size: 50px;
   white-space: nowrap;
+}
+.text-input-white .v-text-field__slot input {
+  color: white !important;
 }
 </style>
