@@ -15,13 +15,12 @@
           {{ item.title }}
         </v-tab>
       </v-tabs>
-      <v-btn variant="outlined" icon color="white">
-        <v-icon>mdi-account</v-icon>
-      </v-btn>
       <v-text-field
         v-text-color="white"
         class="text-input-white"
         color="white"
+        :light="true"
+        clearable="true"
         :loading="loading"
         density="compact"
         variant="solo"
@@ -32,6 +31,9 @@
         :style="{ background: white }"
         @click:append="onClick"
       ></v-text-field>
+      <v-btn variant="outlined" icon color="white">
+        <v-icon>mdi-account</v-icon>
+      </v-btn>
       <v-btn variant="outlined" icon color="white">
         <v-icon>mdi-format-list-bulleted-square</v-icon>
       </v-btn>
@@ -87,6 +89,10 @@ export default {
   overflow: unset;
   font-size: 50px;
   white-space: nowrap;
+  padding-left: 4%;
+}
+.menu-burger {
+  padding-right: 4%;
 }
 .text-input-white .v-text-field__slot input {
   color: white !important;
