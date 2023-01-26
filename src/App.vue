@@ -92,7 +92,6 @@ export default {
   overflow: unset;
   font-size: 50px;
   white-space: nowrap;
-  padding-left: 4%;
 }
 .menu-burger {
   padding-right: 4%;
