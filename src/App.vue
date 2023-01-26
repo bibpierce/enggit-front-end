@@ -10,7 +10,7 @@
           :key="item.title"
           :to="item.to"
           link
-          style="color:white; font-family: 'Quicksand', sans-serif; font-size: 20px"
+          style="color:white; font-family: 'Quicksand', sans-serif; font-size: 20px;"
         >
           {{ item.title }}
         </v-tab>
@@ -31,6 +31,9 @@
         :style="{ background: white }"
         @click:append="onClick"
       ></v-text-field>
+      <v-btn variant="outlined" icon color="white">
+        <v-icon @click="toAccount">mdi-account</v-icon>
+      </v-btn>
       <v-btn variant="outlined" icon color="white">
         <v-icon>mdi-format-list-bulleted-square</v-icon>
       </v-btn>
@@ -62,6 +65,9 @@ export default {
         this.loading = false;
         this.loaded = true;
       }, 2000);
+    },
+    toAccount() {
+      this.$router.push("/account");
     }
   }
 };
