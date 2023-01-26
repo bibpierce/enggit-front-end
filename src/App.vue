@@ -32,9 +32,6 @@
         @click:append="onClick"
       ></v-text-field>
       <v-btn variant="outlined" icon color="white">
-        <v-icon>mdi-account</v-icon>
-      </v-btn>
-      <v-btn variant="outlined" icon color="white">
         <v-icon>mdi-format-list-bulleted-square</v-icon>
       </v-btn>
     </v-app-bar>
