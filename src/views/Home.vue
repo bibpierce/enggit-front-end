@@ -5,10 +5,20 @@
       <v-carousel :show-arrows="false" hide-delimiter-background height="900px">
         <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src">
           <div class="carousel-link">
-            New Essential Tees<br />
-            <span @click="learnMoreRoute">Learn more -></span>
-          </div></v-carousel-item
-        >
+            <div class="text-h2">
+              New Essential Tees
+              <br />
+              <span @click="learnMoreRoute" class="text-h5">
+                <p class="text-right">
+                  Learn more
+                  <span class="material-symbols-outlined">
+                    open_in_new
+                  </span>
+                </p>
+              </span>
+            </div>
+          </div>
+        </v-carousel-item>
       </v-carousel>
       <!-- CAROUSELLLLL -->
       <!-- 2ND TABS BAR -->
@@ -150,9 +160,11 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,1,0");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0");
 
 .carousel-link {
-  padding-top: 35%;
-  padding-left: 5%;
+  padding-top: 23%;
+  padding-left: 67%;
+  padding-right: 6.7%;
 }
 </style>
