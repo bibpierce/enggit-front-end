@@ -1,21 +1,42 @@
 <template>
   <v-app id="inspire">
     <v-app-bar flat :absolute="true" color="transparent">
-      <h1 class="titulo">
+      <span class="titulo">
         Enggit Co.
-      </h1>
-
-      <v-tabs color="white" right>
+      </span>
+      <v-tabs color="white" centered>
         <v-tab
           v-for="item in items"
           :key="item.title"
           :to="item.to"
           link
-          style="color:white; font-family: 'Quicksand', sans-serif; font-size: 20px"
+          style="color:white; font-family: 'Quicksand', sans-serif; font-size: 20px;"
         >
           {{ item.title }}
         </v-tab>
       </v-tabs>
+      <v-text-field
+        v-text-color="white"
+        class="text-input-white"
+        color="white"
+        :light="true"
+        clearable="true"
+        :loading="loading"
+        density="compact"
+        variant="solo"
+        placeholder="Search"
+        append-icon="mdi-magnify"
+        single-line
+        hide-details
+        :style="{ background: white }"
+        @click:append="onClick"
+      ></v-text-field>
+      <v-btn variant="outlined" icon color="white">
+        <v-icon @click="toAccount">mdi-account</v-icon>
+      </v-btn>
+      <v-btn variant="outlined" icon color="white">
+        <v-icon>mdi-format-list-bulleted-square</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-main>
       <router-view></router-view>
@@ -27,6 +48,8 @@
 <script>
 export default {
   data: () => ({
+    loaded: false,
+    loading: false,
     items: [
       { title: "HOME", icon: "mdi-format-list-checks", to: "/" },
       { title: "PRODUCTS", icon: "mdi-help-box", to: "/products" },
@@ -34,16 +57,29 @@ export default {
     ],
     drawer: null
   }),
-  components: {
-    // search: require("@/components/Utils/Search.vue").default,
-    // "live-date-time": require("@/components/Utils/LiveDateTime.vue").default,
-    // "add-task": require("@/components/Task/AddTask").default,
-    snackbar: require("@/components/Shared/Snackbar.vue").default
+  methods: {
+    onClick() {
+      this.loading = true;
+
+      setTimeout(() => {
+        this.loading = false;
+        this.loaded = true;
+      }, 2000);
+    },
+    toAccount() {
+      this.$router.push("/account");
+    }
   }
-  // mounted() {
-  //   this.$store.dispatch("getTasks");
-  // }
 };
+// components: {
+//   // search: require("@/components/Utils/Search.vue").default,
+//   // "live-date-time": require("@/components/Utils/LiveDateTime.vue").default,
+//   // "add-task": require("@/components/Task/AddTask").default,
+//   snackbar: require("@/components/Shared/Snackbar.vue").default
+// }
+// // mounted() {
+// //   this.$store.dispatch("getTasks");
+// // }
 </script>
 
 <style>
@@ -51,7 +87,24 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
 .titulo {
+  color: aliceblue;
   font-family: "Monoton", cursive;
   overflow: unset;
+  font-size: 50px;
+  white-space: nowrap;
+}
+.menu-burger {
+  padding-right: 4%;
+}
+.text-input-white .v-text-field__slot input {
+  color: white !important;
+}
+
+.text-input-white .v-text-field__slot input::placeholder {
+  color: white !important;
+}
+
+.text-input-white .v-text-field__slot input::-webkit-search-results-button {
+  color: white !important;
 }
 </style>
